@@ -16,7 +16,8 @@ namespace SoftwareProject
         {
             InitializeComponent();
             Design();
-        }
+            
+        }   
 
         private void Design()
         {

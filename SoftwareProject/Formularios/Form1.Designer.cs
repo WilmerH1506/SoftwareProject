@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.LateralMenu = new System.Windows.Forms.Panel();
             this.subMenuClie = new System.Windows.Forms.Panel();
             this.btnDeleteClie = new System.Windows.Forms.Button();
@@ -91,7 +90,6 @@
             this.btnDeleteClie.Text = "Eliminar";
             this.btnDeleteClie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteClie.UseVisualStyleBackColor = true;
-            this.btnDeleteClie.Click += new System.EventHandler(this.btnDeleteClie_Click);
             // 
             // btnEditClie
             // 
@@ -240,10 +238,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(237, 136);
+            this.pictureBox1.Image = global::SoftwareProject.Properties.Resources.software_development;
+            this.pictureBox1.Location = new System.Drawing.Point(162, 46);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 256);
+            this.pictureBox1.Size = new System.Drawing.Size(512, 512);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
