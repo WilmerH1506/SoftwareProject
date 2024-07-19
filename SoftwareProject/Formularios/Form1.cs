@@ -16,8 +16,9 @@ namespace SoftwareProject
         {
             InitializeComponent();
             Design();
-            
-        }   
+        }
+
+        #region Metodos
 
         private void Design()
         {
@@ -39,6 +40,7 @@ namespace SoftwareProject
             }
         
         }
+
 
         private void Mostrar(Panel subMenu)
         {
@@ -107,5 +109,6 @@ namespace SoftwareProject
             childForm.Show();
         }
 
+        #endregion Metodos
     }
 }

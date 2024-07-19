@@ -256,7 +256,7 @@
             this.Controls.Add(this.LateralMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
-            this.MinimumSize = new System.Drawing.Size(1066, 669);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";
             this.Text = "Servicio Tecnico Avanzado";
             this.LateralMenu.ResumeLayout(false);
