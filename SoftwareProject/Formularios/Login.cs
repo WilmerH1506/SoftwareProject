@@ -55,6 +55,11 @@ namespace SoftwareProject.Formularios
                     Form1 frmInicio = new Form1(cnx);
                     frmInicio.ShowDialog();
                 }
+                else {
+                    MessageBox.Show("Las credenciales son invalidas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsuario.Clear();
+                    txtPassword.Clear();
+                }
 
 
 
@@ -99,11 +104,15 @@ namespace SoftwareProject.Formularios
             if (reader.HasRows)
             {
                 acceso = true;
+                    reader.Close();
+                    cmd.Dispose();
                     return acceso;
+                    
             }
-            else { acceso = false; }
+            else { acceso = false; reader.Close();cmd.Dispose(); }
             return acceso;
         }catch(Exception ex) {MessageBox.Show("No existen las credenciales o " + ex.Message); }
+            return acceso;
         }
 
 
