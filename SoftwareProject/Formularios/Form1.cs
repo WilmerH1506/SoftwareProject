@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ namespace SoftwareProject
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private SqlConnection conexion;
+        public Form1(SqlConnection cnx)
         {
             InitializeComponent();
             Design();
+            cnx = conexion;
         }
 
         #region Metodos
