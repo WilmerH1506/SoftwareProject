@@ -234,6 +234,7 @@
             this.panelForms.Name = "panelForms";
             this.panelForms.Size = new System.Drawing.Size(767, 622);
             this.panelForms.TabIndex = 2;
+            this.panelForms.Paint += new System.Windows.Forms.PaintEventHandler(this.panelForms_Paint);
             // 
             // pictureBox1
             // 
@@ -248,7 +249,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1048, 622);

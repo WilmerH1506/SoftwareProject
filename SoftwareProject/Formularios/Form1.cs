@@ -113,5 +113,10 @@ namespace SoftwareProject
         }
 
         #endregion Metodos
+
+        private void panelForms_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

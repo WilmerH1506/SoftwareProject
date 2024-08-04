@@ -51,6 +51,17 @@ namespace SoftwareProject.Formularios
 
                 if (Credenciales(cnx) == true)
                 {
+                    SqlCommand cmd = new SqlCommand("spValidarUsuario", cnx);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Nombre", txtUsuario.Text);
+                    cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                    object reader = cmd.ExecuteScalar();
+
+                    if (reader != null)
+                    {
+                        int UsuarioId = Convert.ToInt32(reader);
+                        Console.WriteLine(UsuarioId);
+                    }
 
                     Form1 frmInicio = new Form1(cnx);
                     frmInicio.ShowDialog();
@@ -60,10 +71,6 @@ namespace SoftwareProject.Formularios
                     txtUsuario.Clear();
                     txtPassword.Clear();
                 }
-
-
-
-
             }
             catch (SqlException ex)
             {
@@ -106,8 +113,7 @@ namespace SoftwareProject.Formularios
                 acceso = true;
                     reader.Close();
                     cmd.Dispose();
-                    return acceso;
-                    
+                    return acceso;      
             }
             else { acceso = false; reader.Close();cmd.Dispose(); }
             return acceso;

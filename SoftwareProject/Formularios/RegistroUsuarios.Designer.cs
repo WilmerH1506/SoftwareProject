@@ -60,17 +60,19 @@
             this.PRegistro.Controls.Add(this.txtNombre);
             this.PRegistro.Controls.Add(this.Registro);
             this.PRegistro.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PRegistro.Location = new System.Drawing.Point(852, 0);
+            this.PRegistro.Location = new System.Drawing.Point(639, 0);
+            this.PRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PRegistro.Name = "PRegistro";
-            this.PRegistro.Size = new System.Drawing.Size(359, 570);
+            this.PRegistro.Size = new System.Drawing.Size(269, 424);
             this.PRegistro.TabIndex = 0;
             // 
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(90, 208);
+            this.txtPass.Location = new System.Drawing.Point(68, 169);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(130, 23);
+            this.txtPass.Size = new System.Drawing.Size(98, 20);
             this.txtPass.TabIndex = 8;
             this.txtPass.Text = "Contraseña";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -81,9 +83,10 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrar.Location = new System.Drawing.Point(330, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(248, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 27);
+            this.btnCerrar.Size = new System.Drawing.Size(22, 22);
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -96,9 +99,10 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnIngresar.Location = new System.Drawing.Point(74, 404);
+            this.btnIngresar.Location = new System.Drawing.Point(56, 328);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(217, 40);
+            this.btnIngresar.Size = new System.Drawing.Size(163, 32);
             this.btnIngresar.TabIndex = 7;
             this.btnIngresar.Text = "REGISTRAR";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -106,27 +110,30 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(90, 330);
+            this.txtDireccion.Location = new System.Drawing.Point(68, 268);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(130, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(98, 20);
             this.txtDireccion.TabIndex = 5;
             this.txtDireccion.Text = "Direccion";
             this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(90, 288);
+            this.txtTelefono.Location = new System.Drawing.Point(68, 234);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(130, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(98, 20);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.Text = "Telefono";
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(90, 247);
+            this.txtMail.Location = new System.Drawing.Point(68, 201);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(130, 22);
+            this.txtMail.Size = new System.Drawing.Size(98, 20);
             this.txtMail.TabIndex = 3;
             this.txtMail.Text = "Correo";
             this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -134,9 +141,10 @@
             // txtDNI
             // 
             this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNI.Location = new System.Drawing.Point(90, 162);
+            this.txtDNI.Location = new System.Drawing.Point(68, 132);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(130, 23);
+            this.txtDNI.Size = new System.Drawing.Size(98, 20);
             this.txtDNI.TabIndex = 2;
             this.txtDNI.Text = "Identidad";
             this.txtDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -145,9 +153,10 @@
             // 
             this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
             this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(90, 115);
+            this.txtNombre.Location = new System.Drawing.Point(68, 93);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(130, 23);
+            this.txtNombre.Size = new System.Drawing.Size(98, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Text = "Nombre";
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -159,9 +168,10 @@
             this.Registro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Registro.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Registro.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.Registro.Location = new System.Drawing.Point(74, 16);
+            this.Registro.Location = new System.Drawing.Point(56, 13);
+            this.Registro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Registro.Name = "Registro";
-            this.Registro.Size = new System.Drawing.Size(157, 42);
+            this.Registro.Size = new System.Drawing.Size(131, 35);
             this.Registro.TabIndex = 0;
             this.Registro.Text = "Registros";
             // 
@@ -170,31 +180,35 @@
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(589, 0);
+            this.panel1.Location = new System.Drawing.Point(442, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 570);
+            this.panel1.Size = new System.Drawing.Size(197, 424);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(46, 141);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 115);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(174, 168);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 136);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // RegistroUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1211, 570);
+            this.ClientSize = new System.Drawing.Size(908, 424);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PRegistro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RegistroUsuarios";
             this.Text = "RegistroUsuarios";
+            this.Load += new System.EventHandler(this.RegistroUsuarios_Load);
             this.PRegistro.ResumeLayout(false);
             this.PRegistro.PerformLayout();
             this.panel1.ResumeLayout(false);

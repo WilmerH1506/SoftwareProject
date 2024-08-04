@@ -25,8 +25,8 @@ namespace SoftwareProject.Formularios
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            this.FormClosed += new FormClosedEventHandler(RegistroUsuarios_btnCerrar);
             this.Dispose();
-          
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -44,10 +44,8 @@ namespace SoftwareProject.Formularios
 
                 Comando("spRegistrarUsuarios", cnx);
 
-                Form1 frmInicio= new Form1(cnx);
-                frmInicio.ShowDialog();
-
-
+                this.Close();
+                this.FormClosed += new FormClosedEventHandler(RegistroUsuarios_btnCerrar);
 
             }
             catch (Exception ex) {
@@ -73,6 +71,17 @@ namespace SoftwareProject.Formularios
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             return cmd;
+        }
+
+        private void RegistroUsuarios_btnCerrar(object sender, FormClosedEventArgs e)
+        {
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
+
+        private void RegistroUsuarios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
