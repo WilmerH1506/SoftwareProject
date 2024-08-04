@@ -115,7 +115,16 @@ namespace SoftwareProject.Formularios
             return acceso;
         }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
 
-    
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            RegistroUsuarios r= new RegistroUsuarios();
+           
+            r.Show();
+        }
     }
 }
