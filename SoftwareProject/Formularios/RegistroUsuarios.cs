@@ -19,6 +19,7 @@ namespace SoftwareProject.Formularios
         public RegistroUsuarios()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
 
        
@@ -82,6 +83,13 @@ namespace SoftwareProject.Formularios
         private void RegistroUsuarios_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Dispose();
         }
     }
 }
