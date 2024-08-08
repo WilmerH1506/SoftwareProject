@@ -57,11 +57,15 @@ namespace SoftwareProject.Formularios
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Nombre", txtUsuario.Text);
                     cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                    object reader = cmd.ExecuteScalar();
+                   object reader = cmd.ExecuteScalar();
+                    
+
+                    
 
                  
                          usuarioID = Convert.ToInt32(reader);
                         Console.WriteLine(usuarioID);
+                    cmd.Dispose();
                     
                   
 

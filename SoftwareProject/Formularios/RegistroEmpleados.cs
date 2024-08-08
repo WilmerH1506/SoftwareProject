@@ -52,42 +52,73 @@ namespace SoftwareProject.Formularios
         {
 
             Autorizado(cnx, userID);
+            Commando(cnx, userID);
 
 
         }
 
         private SqlCommand Commando(SqlConnection conexion, int user) {
 
-            CHKBox(user);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("spRegistrarEmpleadosJefes", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlCommand cmd = new SqlCommand("spRegistrarEmpleadosJefes", conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("Name", txtNombre.Text);
-            cmd.Parameters.AddWithValue("DNI", txtDNI.Text);
-            cmd.Parameters.AddWithValue("Email", txtMail.Text);
-            cmd.Parameters.AddWithValue("@Cel", txtTelefono.Text);
-            cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-            cmd.Parameters.AddWithValue("@Area", cmbAreas.SelectedItem);
-            cmd.Parameters.AddWithValue("@Sueldo", txtSueldo.Text);
-           cmd.Parameters.AddWithValue("@Jefe",CHKBox(user) );
-            cmd.Parameters.AddWithValue("Pass", txtPass.Text);
-            
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
-            return cmd;
+                String consulta = "Select * from Empleado where UsuarioId = @user";
+                SqlCommand leerID = new SqlCommand(consulta, conexion);
+                leerID.Parameters.AddWithValue("@user", user);
+                SqlDataReader reader = leerID.ExecuteReader();
+                int id = 0;
+
+                if (reader.Read())
+                {
+                    id = Convert.ToInt32(reader["EmpleadoId"]);
+                }
+                reader.Close();
+                leerID.Dispose();
+
+                cmd.Parameters.AddWithValue("@Name", txtNombre.Text);
+                cmd.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                cmd.Parameters.AddWithValue("@Email", txtMail.Text);
+                cmd.Parameters.AddWithValue("@Cel", txtTelefono.Text);
+                cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+                cmd.Parameters.AddWithValue("@Area", cmbAreas.SelectedItem);
+                cmd.Parameters.AddWithValue("@Sueldo", txtSueldo.Text);
+                bool x = CHKBox();
+                if (x == true)
+                {
+                    cmd.Parameters.AddWithValue("@Jefe", 0);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Jefe", id);
+                }
+
+                cmd.Parameters.AddWithValue("Pass", txtPass.Text);
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                return cmd;
+            }
+            catch (SqlException ex)
+            {
+              MessageBox.Show("Ocurrio un Error "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+           return null;
         }
 
-        private int CHKBox(int user) 
+        private bool CHKBox() 
         {
-            int ConfirmarF = 0;
+            bool ConfirmarF = false;
 
             if (chkJefe.Checked)
             {
-                ConfirmarF = 1;
+                ConfirmarF = true;
             }
             else
             {
-                ConfirmarF = user;
+                ConfirmarF = false;
             }
             return ConfirmarF;
         }
@@ -110,11 +141,13 @@ namespace SoftwareProject.Formularios
                 {
                     Console.WriteLine("Nuuuu");
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrio un Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
             return acceso;
         }
     }
