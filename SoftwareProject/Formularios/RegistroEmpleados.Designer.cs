@@ -1,6 +1,6 @@
 ﻿namespace SoftwareProject.Formularios
 {
-    partial class RegistroUsuarios
+    partial class RegistroEmpleados
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroUsuarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleados));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PRegistro = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -39,18 +40,37 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Registro = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.PRegistro.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbAreas = new System.Windows.Forms.ComboBox();
+            this.chkJefe = new System.Windows.Forms.CheckBox();
+            this.labelJefe = new System.Windows.Forms.Label();
+            this.txtSueldo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.PRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(852, 604);
+            this.panel1.TabIndex = 2;
             // 
             // PRegistro
             // 
             this.PRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.PRegistro.Controls.Add(this.txtSueldo);
+            this.PRegistro.Controls.Add(this.labelJefe);
+            this.PRegistro.Controls.Add(this.chkJefe);
+            this.PRegistro.Controls.Add(this.cmbAreas);
             this.PRegistro.Controls.Add(this.btnRegresar);
             this.PRegistro.Controls.Add(this.txtPass);
             this.PRegistro.Controls.Add(this.btnCerrar);
@@ -62,11 +82,12 @@
             this.PRegistro.Controls.Add(this.txtNombre);
             this.PRegistro.Controls.Add(this.Registro);
             this.PRegistro.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PRegistro.Location = new System.Drawing.Point(787, 0);
+            this.PRegistro.Location = new System.Drawing.Point(819, 0);
             this.PRegistro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PRegistro.Name = "PRegistro";
-            this.PRegistro.Size = new System.Drawing.Size(424, 522);
-            this.PRegistro.TabIndex = 0;
+            this.PRegistro.Size = new System.Drawing.Size(424, 604);
+            this.PRegistro.TabIndex = 3;
+            this.PRegistro.Paint += new System.Windows.Forms.PaintEventHandler(this.PRegistro_Paint);
             // 
             // btnRegresar
             // 
@@ -76,7 +97,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnRegresar.Location = new System.Drawing.Point(91, 462);
+            this.btnRegresar.Location = new System.Drawing.Point(91, 545);
             this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(231, 39);
@@ -107,7 +128,7 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnIngresar.Location = new System.Drawing.Point(91, 404);
+            this.btnIngresar.Location = new System.Drawing.Point(91, 492);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(231, 39);
@@ -193,33 +214,12 @@
             this.Registro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Registro.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Registro.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.Registro.Location = new System.Drawing.Point(135, 40);
+            this.Registro.Location = new System.Drawing.Point(157, 40);
             this.Registro.Name = "Registro";
-            this.Registro.Size = new System.Drawing.Size(157, 42);
+            this.Registro.Size = new System.Drawing.Size(103, 42);
             this.Registro.TabIndex = 0;
-            this.Registro.Text = "Registros";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(-65, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(852, 522);
-            this.panel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(241, 40);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(416, 422);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.Registro.Text = "STAFF";
+            this.Registro.Click += new System.EventHandler(this.Registro_Click);
             // 
             // btnCerrar
             // 
@@ -233,23 +233,79 @@
             this.btnCerrar.Size = new System.Drawing.Size(29, 27);
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // RegistroUsuarios
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(241, 40);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(416, 422);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbAreas
+            // 
+            this.cmbAreas.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cmbAreas.ForeColor = System.Drawing.SystemColors.Window;
+            this.cmbAreas.FormattingEnabled = true;
+            this.cmbAreas.Location = new System.Drawing.Point(131, 412);
+            this.cmbAreas.Name = "cmbAreas";
+            this.cmbAreas.Size = new System.Drawing.Size(200, 24);
+            this.cmbAreas.TabIndex = 10;
+            this.cmbAreas.SelectedIndexChanged += new System.EventHandler(this.cmbAreas_SelectedIndexChanged);
+            // 
+            // chkJefe
+            // 
+            this.chkJefe.AutoSize = true;
+            this.chkJefe.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkJefe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkJefe.Location = new System.Drawing.Point(211, 460);
+            this.chkJefe.Name = "chkJefe";
+            this.chkJefe.Size = new System.Drawing.Size(72, 21);
+            this.chkJefe.TabIndex = 12;
+            this.chkJefe.Text = "Si / No";
+            this.chkJefe.UseVisualStyleBackColor = true;
+            // 
+            // labelJefe
+            // 
+            this.labelJefe.AutoSize = true;
+            this.labelJefe.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJefe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelJefe.Location = new System.Drawing.Point(87, 458);
+            this.labelJefe.Name = "labelJefe";
+            this.labelJefe.Size = new System.Drawing.Size(103, 20);
+            this.labelJefe.TabIndex = 13;
+            this.labelJefe.Text = "Nuevo Jefe :";
+            // 
+            // txtSueldo
+            // 
+            this.txtSueldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtSueldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSueldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSueldo.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSueldo.Location = new System.Drawing.Point(91, 376);
+            this.txtSueldo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSueldo.Name = "txtSueldo";
+            this.txtSueldo.Size = new System.Drawing.Size(240, 20);
+            this.txtSueldo.TabIndex = 14;
+            this.txtSueldo.Text = "Sueldo LPS.";
+            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // RegistroEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1211, 522);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1243, 604);
             this.Controls.Add(this.PRegistro);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "RegistroUsuarios";
-            this.Text = "RegistroUsuarios";
-            this.Load += new System.EventHandler(this.RegistroUsuarios_Load);
+            this.Controls.Add(this.panel1);
+            this.Name = "RegistroEmpleados";
+            this.Text = "RegistroEmpleados";
+            this.Load += new System.EventHandler(this.RegistroEmpleados_Load);
+            this.panel1.ResumeLayout(false);
             this.PRegistro.ResumeLayout(false);
             this.PRegistro.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -257,19 +313,22 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel PRegistro;
-        private System.Windows.Forms.Label Registro;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Label Registro;
+        private System.Windows.Forms.ComboBox cmbAreas;
+        private System.Windows.Forms.Label labelJefe;
+        private System.Windows.Forms.CheckBox chkJefe;
+        private System.Windows.Forms.TextBox txtSueldo;
     }
 }

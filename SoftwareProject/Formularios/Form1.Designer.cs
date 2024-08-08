@@ -37,8 +37,8 @@
             this.subMenuUsers = new System.Windows.Forms.Panel();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
-            this.btnAggUser = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
+            this.btnAggEmpleado = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -56,7 +56,7 @@
             this.LateralMenu.Controls.Add(this.subMenuClie);
             this.LateralMenu.Controls.Add(this.btnClientes);
             this.LateralMenu.Controls.Add(this.subMenuUsers);
-            this.LateralMenu.Controls.Add(this.btnUser);
+            this.LateralMenu.Controls.Add(this.btnEmpleados);
             this.LateralMenu.Controls.Add(this.panelLogo);
             this.LateralMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.LateralMenu.Location = new System.Drawing.Point(0, 0);
@@ -145,7 +145,7 @@
             this.subMenuUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.subMenuUsers.Controls.Add(this.btnDeleteUser);
             this.subMenuUsers.Controls.Add(this.btnEditUser);
-            this.subMenuUsers.Controls.Add(this.btnAggUser);
+            this.subMenuUsers.Controls.Add(this.btnAggEmpleado);
             this.subMenuUsers.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuUsers.Location = new System.Drawing.Point(0, 163);
             this.subMenuUsers.Name = "subMenuUsers";
@@ -185,37 +185,37 @@
             this.btnEditUser.UseVisualStyleBackColor = true;
             this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
-            // btnAggUser
+            // btnAggEmpleado
             // 
-            this.btnAggUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAggUser.FlatAppearance.BorderSize = 0;
-            this.btnAggUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAggUser.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAggUser.Location = new System.Drawing.Point(0, 0);
-            this.btnAggUser.Name = "btnAggUser";
-            this.btnAggUser.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnAggUser.Size = new System.Drawing.Size(281, 45);
-            this.btnAggUser.TabIndex = 1;
-            this.btnAggUser.Text = "Agregar";
-            this.btnAggUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAggUser.UseVisualStyleBackColor = true;
-            this.btnAggUser.Click += new System.EventHandler(this.btnAggUser_Click);
+            this.btnAggEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAggEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnAggEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAggEmpleado.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAggEmpleado.Location = new System.Drawing.Point(0, 0);
+            this.btnAggEmpleado.Name = "btnAggEmpleado";
+            this.btnAggEmpleado.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnAggEmpleado.Size = new System.Drawing.Size(281, 45);
+            this.btnAggEmpleado.TabIndex = 1;
+            this.btnAggEmpleado.Text = "Agregar";
+            this.btnAggEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAggEmpleado.UseVisualStyleBackColor = true;
+            this.btnAggEmpleado.Click += new System.EventHandler(this.btnAggUser_Click);
             // 
-            // btnUser
+            // btnEmpleados
             // 
-            this.btnUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUser.FlatAppearance.BorderSize = 0;
-            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUser.Location = new System.Drawing.Point(0, 112);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(281, 51);
-            this.btnUser.TabIndex = 1;
-            this.btnUser.Text = "Usuario";
-            this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.UseVisualStyleBackColor = true;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            this.btnEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleados.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 112);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnEmpleados.Size = new System.Drawing.Size(281, 51);
+            this.btnEmpleados.TabIndex = 1;
+            this.btnEmpleados.Text = "Empleado";
+            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // panelLogo
             // 
@@ -249,7 +249,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1048, 622);
@@ -273,12 +273,12 @@
         #endregion
 
         private System.Windows.Forms.Panel LateralMenu;
-        private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel subMenuUsers;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnEditUser;
-        private System.Windows.Forms.Button btnAggUser;
+        private System.Windows.Forms.Button btnAggEmpleado;
         private System.Windows.Forms.Panel subMenuClie;
         private System.Windows.Forms.Button btnDeleteClie;
         private System.Windows.Forms.Button btnEditClie;

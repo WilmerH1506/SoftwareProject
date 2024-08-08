@@ -16,6 +16,7 @@ namespace SoftwareProject.Formularios
     public partial class Login : Form
     {
         private SqlConnection cnx;
+        private int usuarioID;
         private bool conectado;
 
 
@@ -58,13 +59,13 @@ namespace SoftwareProject.Formularios
                     cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
                     object reader = cmd.ExecuteScalar();
 
-                    if (reader != null)
-                    {
-                        int UsuarioId = Convert.ToInt32(reader);
-                        Console.WriteLine(UsuarioId);
-                    }
+                 
+                         usuarioID = Convert.ToInt32(reader);
+                        Console.WriteLine(usuarioID);
+                    
+                  
 
-                    Form1 frmInicio = new Form1(cnx);
+                    Form1 frmInicio = new Form1(cnx,usuarioID);
                     frmInicio.ShowDialog();
                 }
                 else {

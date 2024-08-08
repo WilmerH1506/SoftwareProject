@@ -44,6 +44,7 @@ namespace SoftwareProject.Formularios
                 conectado = true;
 
                 Comando("spRegistrarUsuarios", cnx);
+                MessageBox.Show("Se ha Registrado Exitosamente", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
                 this.FormClosed += new FormClosedEventHandler(RegistroUsuarios_btnCerrar);
@@ -90,6 +91,15 @@ namespace SoftwareProject.Formularios
             Login login = new Login();
             login.Show();
             this.Dispose();
+        }
+
+        private void btnJefes_Click(object sender, EventArgs e)
+        {
+
+         
+          
+
+
         }
     }
 }

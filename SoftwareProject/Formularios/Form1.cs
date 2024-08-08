@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareProject.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +14,14 @@ namespace SoftwareProject
 {
     public partial class Form1 : Form
     {
-        private SqlConnection conexion;
-        public Form1(SqlConnection cnx)
+        private SqlConnection cnx;
+        private int userID;
+        public Form1(SqlConnection conexion, int usuario)
         {
             InitializeComponent();
             Design();
-            cnx = conexion;
+           cnx= conexion;
+            userID = usuario;
         }
 
         #region Metodos
@@ -59,11 +62,18 @@ namespace SoftwareProject
         private void btnUser_Click(object sender, EventArgs e)
         {
             Mostrar(subMenuUsers);
+            Console.WriteLine(userID);
+
+
+
         }
 
         private void btnAggUser_Click(object sender, EventArgs e)
         {
             Ocultar();
+            RegistroEmpleados frmE = new RegistroEmpleados(cnx,userID);
+            frmE.ShowDialog();
+           
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
