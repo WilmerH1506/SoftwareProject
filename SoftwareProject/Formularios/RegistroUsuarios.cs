@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace SoftwareProject.Formularios
 { 
     public partial class RegistroUsuarios : Form
     {
+        String url = "Server= 3.128.144.165;" +
+                            "DataBase= DB20222000953;" +
+                            "User ID= david.rodriguez;" +
+                            "password= DR20222000953;";
+        SqlConnection conexion;
+        SqlDataAdapter adpUserName;
         private SqlConnection cnx;
         private bool conectado;
             
@@ -20,6 +27,8 @@ namespace SoftwareProject.Formularios
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;    
+
+            conexion = new SqlConnection(url);
         }
 
        
@@ -32,27 +41,37 @@ namespace SoftwareProject.Formularios
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            try
+            if (UsuarioExiste(txtNombre.Text))
             {
-                String url = "Server= 3.128.144.165;" +
-                            "DataBase= DB20222000953;" +
-                            "User ID= david.rodriguez;" +
-                            "password= DR20222000953;";
-                conectado = false;
-                cnx = new SqlConnection(url);
-                cnx.Open();
-                conectado = true;
-
-                Comando("spRegistrarUsuarios", cnx);
-                MessageBox.Show("Se ha Registrado Exitosamente", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.Close();
-                this.FormClosed += new FormClosedEventHandler(RegistroUsuarios_btnCerrar);
-
+                MessageBox.Show("El usuario que desea registrar ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex) {
-                MessageBox.Show("No se Pudo conectar y "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                try
+                {
+                    String url = "Server= 3.128.144.165;" +
+                                "DataBase= DB20222000953;" +
+                                "User ID= david.rodriguez;" +
+                                "password= DR20222000953;";
+                    conectado = false;
+                    cnx = new SqlConnection(url);
+                    cnx.Open();
+                    conectado = true;
+
+                    Comando("spRegistrarUsuarios", cnx);
+                    MessageBox.Show("Se ha Registrado Exitosamente", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                    this.FormClosed += new FormClosedEventHandler(RegistroUsuarios_btnCerrar);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se Pudo conectar y " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
+     
 
 
         }
@@ -74,6 +93,27 @@ namespace SoftwareProject.Formularios
             cmd.Dispose();
             return cmd;
         }
+
+        private bool UsuarioExiste(string nombreUsuario)
+        {
+            bool existe = false;
+            try
+            {
+                SqlConnection cnx = new SqlConnection(url);
+
+                cnx.Open();
+                SqlCommand cmd = new SqlCommand("SELECT dbo.fnUsuarioExiste(@NombreUsuario)", cnx);
+
+                cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+                existe = (bool)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar si el usuario existe: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return existe;
+        }
+
 
         private void RegistroUsuarios_btnCerrar(object sender, FormClosedEventArgs e)
         {
@@ -101,5 +141,23 @@ namespace SoftwareProject.Formularios
 
 
         }
+
+        //private void txtNombre_Enter(object sender, EventArgs e)
+        //{
+        //    if (txtNombre.Text == "Nombre")
+        //    {
+        //        txtNombre.Text = "";
+        //    }
+        //}
+
+        //private void txtNombre_Leave(object sender, EventArgs e)
+        //{
+
+        //    if (string.IsNullOrWhiteSpace(txtNombre.Text))
+        //    {
+        //        txtNombre.Text = "Nombre";
+        //    }
+
+        //}
     }
 }
