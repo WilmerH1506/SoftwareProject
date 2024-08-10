@@ -84,6 +84,7 @@ namespace SoftwareProject.Formularios
                 cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                 cmd.Parameters.AddWithValue("@Area", cmbAreas.SelectedItem);
                 cmd.Parameters.AddWithValue("@Sueldo", txtSueldo.Text);
+                cmd.Parameters.AddWithValue("@user", txtUsername.Text);
                 bool x = CHKBox();
                 if (x == true)
                 {

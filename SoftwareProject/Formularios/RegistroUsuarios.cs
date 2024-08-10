@@ -87,6 +87,7 @@ namespace SoftwareProject.Formularios
             cmd.Parameters.AddWithValue("@Email", txtMail.Text);
             cmd.Parameters.AddWithValue("@Cel", txtTelefono.Text);
             cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+            cmd.Parameters.AddWithValue("@user", txtUsername.Text);
             
 
             cmd.ExecuteNonQuery();

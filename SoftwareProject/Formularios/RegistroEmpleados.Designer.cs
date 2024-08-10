@@ -30,9 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleados));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PRegistro = new System.Windows.Forms.Panel();
+            this.txtSueldo = new System.Windows.Forms.TextBox();
+            this.labelJefe = new System.Windows.Forms.Label();
+            this.chkJefe = new System.Windows.Forms.CheckBox();
+            this.cmbAreas = new System.Windows.Forms.ComboBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -40,15 +46,10 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Registro = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbAreas = new System.Windows.Forms.ComboBox();
-            this.chkJefe = new System.Windows.Forms.CheckBox();
-            this.labelJefe = new System.Windows.Forms.Label();
-            this.txtSueldo = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.PRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,9 +65,21 @@
             this.panel1.Size = new System.Drawing.Size(852, 604);
             this.panel1.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(241, 40);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(416, 422);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // PRegistro
             // 
             this.PRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.PRegistro.Controls.Add(this.txtUsername);
             this.PRegistro.Controls.Add(this.txtSueldo);
             this.PRegistro.Controls.Add(this.labelJefe);
             this.PRegistro.Controls.Add(this.chkJefe);
@@ -88,6 +101,54 @@
             this.PRegistro.Size = new System.Drawing.Size(424, 604);
             this.PRegistro.TabIndex = 3;
             this.PRegistro.Paint += new System.Windows.Forms.PaintEventHandler(this.PRegistro_Paint);
+            // 
+            // txtSueldo
+            // 
+            this.txtSueldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtSueldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSueldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSueldo.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSueldo.Location = new System.Drawing.Point(91, 375);
+            this.txtSueldo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSueldo.Name = "txtSueldo";
+            this.txtSueldo.Size = new System.Drawing.Size(240, 20);
+            this.txtSueldo.TabIndex = 14;
+            this.txtSueldo.Text = "Sueldo LPS.";
+            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelJefe
+            // 
+            this.labelJefe.AutoSize = true;
+            this.labelJefe.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJefe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelJefe.Location = new System.Drawing.Point(87, 458);
+            this.labelJefe.Name = "labelJefe";
+            this.labelJefe.Size = new System.Drawing.Size(103, 20);
+            this.labelJefe.TabIndex = 13;
+            this.labelJefe.Text = "Nuevo Jefe :";
+            // 
+            // chkJefe
+            // 
+            this.chkJefe.AutoSize = true;
+            this.chkJefe.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkJefe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkJefe.Location = new System.Drawing.Point(211, 460);
+            this.chkJefe.Name = "chkJefe";
+            this.chkJefe.Size = new System.Drawing.Size(72, 21);
+            this.chkJefe.TabIndex = 12;
+            this.chkJefe.Text = "Si / No";
+            this.chkJefe.UseVisualStyleBackColor = true;
+            // 
+            // cmbAreas
+            // 
+            this.cmbAreas.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cmbAreas.ForeColor = System.Drawing.SystemColors.Window;
+            this.cmbAreas.FormattingEnabled = true;
+            this.cmbAreas.Location = new System.Drawing.Point(131, 412);
+            this.cmbAreas.Name = "cmbAreas";
+            this.cmbAreas.Size = new System.Drawing.Size(200, 24);
+            this.cmbAreas.TabIndex = 10;
+            this.cmbAreas.SelectedIndexChanged += new System.EventHandler(this.cmbAreas_SelectedIndexChanged);
             // 
             // btnRegresar
             // 
@@ -112,13 +173,26 @@
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPass.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPass.Location = new System.Drawing.Point(91, 208);
+            this.txtPass.Location = new System.Drawing.Point(91, 240);
             this.txtPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(240, 21);
             this.txtPass.TabIndex = 8;
             this.txtPass.Text = "Contraseña";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCerrar.Location = new System.Drawing.Point(383, 16);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(29, 27);
+            this.btnCerrar.TabIndex = 7;
+            this.btnCerrar.UseVisualStyleBackColor = true;
             // 
             // btnIngresar
             // 
@@ -143,7 +217,7 @@
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtDireccion.Location = new System.Drawing.Point(91, 330);
+            this.txtDireccion.Location = new System.Drawing.Point(91, 341);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(240, 20);
@@ -157,7 +231,7 @@
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtTelefono.Location = new System.Drawing.Point(91, 288);
+            this.txtTelefono.Location = new System.Drawing.Point(91, 308);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(240, 20);
@@ -171,7 +245,7 @@
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMail.Location = new System.Drawing.Point(91, 247);
+            this.txtMail.Location = new System.Drawing.Point(91, 274);
             this.txtMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(240, 20);
@@ -185,7 +259,7 @@
             this.txtDNI.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDNI.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtDNI.Location = new System.Drawing.Point(91, 162);
+            this.txtDNI.Location = new System.Drawing.Point(91, 201);
             this.txtDNI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(240, 21);
@@ -221,77 +295,19 @@
             this.Registro.Text = "STAFF";
             this.Registro.Click += new System.EventHandler(this.Registro_Click);
             // 
-            // btnCerrar
+            // txtUsername
             // 
-            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrar.Location = new System.Drawing.Point(383, 16);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 27);
-            this.btnCerrar.TabIndex = 7;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(241, 40);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(416, 422);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // cmbAreas
-            // 
-            this.cmbAreas.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cmbAreas.ForeColor = System.Drawing.SystemColors.Window;
-            this.cmbAreas.FormattingEnabled = true;
-            this.cmbAreas.Location = new System.Drawing.Point(131, 412);
-            this.cmbAreas.Name = "cmbAreas";
-            this.cmbAreas.Size = new System.Drawing.Size(200, 24);
-            this.cmbAreas.TabIndex = 10;
-            this.cmbAreas.SelectedIndexChanged += new System.EventHandler(this.cmbAreas_SelectedIndexChanged);
-            // 
-            // chkJefe
-            // 
-            this.chkJefe.AutoSize = true;
-            this.chkJefe.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkJefe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkJefe.Location = new System.Drawing.Point(211, 460);
-            this.chkJefe.Name = "chkJefe";
-            this.chkJefe.Size = new System.Drawing.Size(72, 21);
-            this.chkJefe.TabIndex = 12;
-            this.chkJefe.Text = "Si / No";
-            this.chkJefe.UseVisualStyleBackColor = true;
-            // 
-            // labelJefe
-            // 
-            this.labelJefe.AutoSize = true;
-            this.labelJefe.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJefe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelJefe.Location = new System.Drawing.Point(87, 458);
-            this.labelJefe.Name = "labelJefe";
-            this.labelJefe.Size = new System.Drawing.Size(103, 20);
-            this.labelJefe.TabIndex = 13;
-            this.labelJefe.Text = "Nuevo Jefe :";
-            // 
-            // txtSueldo
-            // 
-            this.txtSueldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtSueldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSueldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSueldo.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSueldo.Location = new System.Drawing.Point(91, 376);
-            this.txtSueldo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.Size = new System.Drawing.Size(240, 20);
-            this.txtSueldo.TabIndex = 14;
-            this.txtSueldo.Text = "Sueldo LPS.";
-            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtUsername.Location = new System.Drawing.Point(91, 155);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(240, 21);
+            this.txtUsername.TabIndex = 15;
+            this.txtUsername.Text = "Username";
+            this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // RegistroEmpleados
             // 
@@ -304,9 +320,9 @@
             this.Text = "RegistroEmpleados";
             this.Load += new System.EventHandler(this.RegistroEmpleados_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PRegistro.ResumeLayout(false);
             this.PRegistro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,5 +346,6 @@
         private System.Windows.Forms.Label labelJefe;
         private System.Windows.Forms.CheckBox chkJefe;
         private System.Windows.Forms.TextBox txtSueldo;
+        private System.Windows.Forms.TextBox txtUsername;
     }
 }
