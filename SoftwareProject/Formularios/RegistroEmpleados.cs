@@ -127,16 +127,18 @@ namespace SoftwareProject.Formularios
             bool acceso = false;
             try
             {
-               
-            SqlCommand cmd = new SqlCommand("spJefes", conexion);
+
+                SqlCommand cmd = new SqlCommand("spJefes", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@userid", user);
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                if (reader.Read()) {
+                if (reader.IsDBNull(0))
                 {
                     acceso = true;
                     Console.WriteLine("SI FUnciona");
                 }
+            }
                 else
                 {
                     Console.WriteLine("Nuuuu");

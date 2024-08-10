@@ -128,5 +128,53 @@ namespace SoftwareProject
         {
 
         }
+
+        private int TipoAutorizado(SqlConnection conexion, int usuario)
+        { 
+        int quien = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("spJefes", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@userid", usuario);
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+
+                if (reader.Read()) { 
+                if (reader.IsDBNull(0))
+                {
+                    quien = 1;
+
+                }
+                if (!reader.IsDBNull(0))
+                {
+                    quien = 2;
+                }
+                if (!reader.HasRows)
+                {
+                    quien = 0;
+                }
+            }
+                reader.Close();
+                return quien;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ocurrio un Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return quien;
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+            if (TipoAutorizado(cnx, userID) != 1)
+            { 
+           btnEmpleados.Visible = false;
+                
+            }
+
+        }
     }
 }

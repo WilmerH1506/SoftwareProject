@@ -260,6 +260,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";
             this.Text = "Servicio Tecnico Avanzado";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.LateralMenu.ResumeLayout(false);
             this.subMenuClie.ResumeLayout(false);
             this.subMenuUsers.ResumeLayout(false);
