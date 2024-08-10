@@ -1,4 +1,5 @@
 ﻿using SoftwareProject.Formularios;
+using SoftwareProject.Formularios.Formularios_de_DELETE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,6 +86,8 @@ namespace SoftwareProject
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             Ocultar();
+            DeleteEmpleados frmDelete = new DeleteEmpleados(cnx);
+            frmDelete.ShowDialog();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
