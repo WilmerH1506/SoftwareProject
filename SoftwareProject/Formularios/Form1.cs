@@ -64,17 +64,12 @@ namespace SoftwareProject
         {
             Mostrar(subMenuUsers);
             Console.WriteLine(userID);
-
-
-
         }
 
         private void btnAggUser_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new RegistroEmpleados(cnx, userID));
             Ocultar();
-            RegistroEmpleados frmE = new RegistroEmpleados(cnx,userID);
-            frmE.ShowDialog();
-           
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -85,9 +80,8 @@ namespace SoftwareProject
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new DeleteEmpleados(cnx));
             Ocultar();
-            DeleteEmpleados frmDelete = new DeleteEmpleados(cnx);
-            frmDelete.ShowDialog();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -111,7 +105,7 @@ namespace SoftwareProject
         }
 
         private Form activeForm = null;
-        private void OpenChildForm (Form childForm)
+        public void OpenChildForm (Form childForm)
         {
             if (activeForm != null)
                 activeForm.Close();

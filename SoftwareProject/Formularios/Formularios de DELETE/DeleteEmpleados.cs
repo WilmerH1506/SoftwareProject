@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
     {
         SqlConnection cnx;
         DataTable TabEmpleados;
-        
+
         public DeleteEmpleados(SqlConnection conexion)
         {
             InitializeComponent();
@@ -29,14 +30,17 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
             try
             {
                 TabEmpleados = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * from Empleado",cnx);
+                SqlDataAdapter adapter = new SqlDataAdapter("select e.EmpleadoId, e.Nombre, e.DNI, e.E_mail, e.Telefono, E.Direccion, E.Especializacion, e.Sueldo, e.jefeId, E.UsuarioId, u.Estado\r\n" +
+                    "from Empleado as e inner join Usuarios as u on e.UsuarioId = u.UsuarioId where u.estado = 'A' ", cnx);
                 adapter.Fill(TabEmpleados);
                 dataGridView1.DataSource = TabEmpleados;
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+                dataGridView1.ScrollBars = ScrollBars.Both;
+                Estado();
                 
+
             }
             catch (SqlException ex)
             {
@@ -44,26 +48,51 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
             }
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
+
+        private void CargarInactivos()
         {
-            this.Close();
+            TabEmpleados = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter("select e.EmpleadoId, e.Nombre, e.DNI, e.E_mail, e.Telefono, E.Direccion, E.Especializacion, e.Sueldo, e.jefeId, E.UsuarioId, u.Estado\r\n" +
+                "from Empleado as e inner join Usuarios as u on e.UsuarioId = u.UsuarioId", cnx);
+            adapter.Fill(TabEmpleados);
+            dataGridView1.DataSource = TabEmpleados;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.ScrollBars = ScrollBars.Both;
+            Estado();
+            dataGridView1.Refresh();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void Estado()
         {
-
-            if (dataGridView1.SelectedRows.Count > 0) 
+            if (dataGridView1.Columns.Contains("Estado"))
             {
+                dataGridView1.Columns.Remove("Estado");
 
-                int EmpleadoUserId = (int)TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["UsuarioId"];
-                Console.WriteLine(EmpleadoUserId);
-                DeleteEmpleadosProc(cnx, EmpleadoUserId);
-                dataGridView1.Refresh();
-                
+                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
+                {
+                    Name = "Estado",
+                    HeaderText = "Estado",
+                    Width = 50,
+                    FillWeight = 50,
+                    DataPropertyName = "Estado" 
+                };
 
+                dataGridView1.Columns.Add(checkBoxColumn);
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells["Estado"] != null)
+                    {
+                        string check = row.Cells["Estado"].Value.ToString();
+
+                        row.Cells["Estado"].Value = check == "A";
+                    }
+                }
             }
-
         }
+
         private SqlCommand DeleteEmpleadosProc(SqlConnection conexion, int usuarioID)
         {
             try
@@ -75,6 +104,12 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
                 if (r == DialogResult.Yes)
                 {
                     cmd.ExecuteNonQuery();
+                    TabEmpleados = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter("select e.EmpleadoId, e.Nombre, e.DNI, e.E_mail, e.Telefono, E.Direccion, E.Especializacion, e.Sueldo, e.jefeId, E.UsuarioId, u.Estado\r\n" +
+                    "from Empleado as e inner join Usuarios as u on e.UsuarioId = u.UsuarioId where u.estado = 'A'", cnx);
+                    adapter.Fill(TabEmpleados);
+                    dataGridView1.DataSource = TabEmpleados;
+                    Estado();
                 }
                 cmd.Dispose();
                 return cmd;
@@ -85,6 +120,96 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
 
             }
             return null;
+        }
+
+        private void EditarEmpleados(SqlConnection cnx, int rowActual)
+        {
+            int EmpleadoID,Jefe;
+            String nombre, DNI, Correo, Telefono, Direccion, Esp, salario; 
+            bool Estado;
+
+            try
+            {
+                EmpleadoID = (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["EmpleadoID"];
+                nombre = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["nombre"].ToString();
+                DNI = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["DNI"].ToString();
+                Correo = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["E_mail"].ToString();
+                Telefono = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Telefono"].ToString();
+                Direccion = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["direccion"].ToString();
+                Esp = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Especializacion"].ToString();
+                salario = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["sueldo"].ToString();
+                string estadoString = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Estado"].ToString();
+                Jefe = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"] 
+                       != DBNull.Value? (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"]  : 0; //Si se recupera un jefeID nulo se enviara como 0
+                Estado = estadoString == "True";
+
+                Form1 form1 = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+
+                if (form1 != null)
+                {
+                    form1.OpenChildForm(new EditarEmpleados(cnx, nombre, DNI, Correo, Telefono, Direccion, Esp, salario, Estado, EmpleadoID,Jefe));
+                }
+
+            } catch (SqlException ex)
+            {
+                MessageBox.Show("Ocurrio un Error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }                
+        }
+
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            string busqueda = txtBusqueda.Text;
+
+            string filtro = string.Format("Convert(DNI, 'System.String') LIKE '%{0}%'", busqueda); // Se hace el %{0}% para que no importa donde este el numero se busque
+
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = filtro;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int EmpleadoUserId = (int)TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["UsuarioId"];
+            DeleteEmpleadosProc(cnx, EmpleadoUserId);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                CargarInactivos();
+            }
+            else
+            {
+                TabEmpleados = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter("select e.EmpleadoId, e.Nombre, e.DNI, e.E_mail, e.Telefono, E.Direccion, E.Especializacion, e.Sueldo, e.jefeId, E.UsuarioId, u.Estado\r\n" +
+                    "from Empleado as e inner join Usuarios as u on e.UsuarioId = u.UsuarioId where u.estado = 'A' ", cnx);
+                adapter.Fill(TabEmpleados);
+                dataGridView1.DataSource = TabEmpleados;
+                dataGridView1.ReadOnly = true;
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.ScrollBars = ScrollBars.Both;
+                Estado();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int EmpleadoUserId = (int) TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["EmpleadoId"];
+
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                EditarEmpleados(cnx, EmpleadoUserId);
+            }
+            else 
+            {
+                MessageBox.Show("Por favor seleccione una fila para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -29,21 +29,7 @@ namespace SoftwareProject.Formularios
             conexion = new SqlConnection(url);
         }
 
-        private void Registro_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbAreas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void PRegistro_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+ 
         private void RegistroEmpleados_Load(object sender, EventArgs e)
         {
             String[] Areas = { "Administracion Gerencial", "Tecnico Redes" };
@@ -195,6 +181,11 @@ namespace SoftwareProject.Formularios
                 MessageBox.Show("Error al verificar si el usuario existe: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return existe;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

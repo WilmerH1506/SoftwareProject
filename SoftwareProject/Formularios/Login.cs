@@ -68,9 +68,10 @@ namespace SoftwareProject.Formularios
                     cmd.Dispose();
                     
                   
-
+                    
                     Form1 frmInicio = new Form1(cnx,usuarioID);
-                    frmInicio.ShowDialog();
+                    frmInicio.Show(); 
+                    
                 }
                 else {
                     MessageBox.Show("Las credenciales son invalidas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -61,7 +61,7 @@
             this.LateralMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.LateralMenu.Location = new System.Drawing.Point(0, 0);
             this.LateralMenu.Name = "LateralMenu";
-            this.LateralMenu.Size = new System.Drawing.Size(281, 622);
+            this.LateralMenu.Size = new System.Drawing.Size(281, 604);
             this.LateralMenu.TabIndex = 0;
             // 
             // subMenuClie
@@ -227,12 +227,14 @@
             // 
             // panelForms
             // 
+            this.panelForms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelForms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.panelForms.Controls.Add(this.pictureBox1);
-            this.panelForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForms.Location = new System.Drawing.Point(281, 0);
             this.panelForms.Name = "panelForms";
-            this.panelForms.Size = new System.Drawing.Size(767, 622);
+            this.panelForms.Size = new System.Drawing.Size(1067, 604);
             this.panelForms.TabIndex = 2;
             this.panelForms.Paint += new System.Windows.Forms.PaintEventHandler(this.panelForms_Paint);
             // 
@@ -240,7 +242,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::SoftwareProject.Properties.Resources.software_development;
-            this.pictureBox1.Location = new System.Drawing.Point(162, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(312, 37);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(512, 512);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -252,13 +254,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1048, 622);
+            this.ClientSize = new System.Drawing.Size(1347, 604);
             this.Controls.Add(this.panelForms);
             this.Controls.Add(this.LateralMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servicio Tecnico Avanzado";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.LateralMenu.ResumeLayout(false);
