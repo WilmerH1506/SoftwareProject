@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace SoftwareProject
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
         private SqlConnection cnx;
         private int userID;
-        public Form1(SqlConnection conexion, int usuario)
+        public Menu(SqlConnection conexion, int usuario)
         {
             InitializeComponent();
             Design();

@@ -53,11 +53,11 @@
     <Compile Include="Formularios\EditarEmpleados.Designer.cs">
       <DependentUpon>EditarEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Form1.cs">
+    <Compile Include="Formularios\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Formularios\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Formularios de DELETE\DeleteEmpleados.cs">
       <SubType>Form</SubType>
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="Formularios\EditarEmpleados.resx">
       <DependentUpon>EditarEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Formularios de DELETE\DeleteEmpleados.resx">
       <DependentUpon>DeleteEmpleados.cs</DependentUpon>

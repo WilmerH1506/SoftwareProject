@@ -1,6 +1,6 @@
 ﻿namespace SoftwareProject
 {
-    partial class Form1
+    partial class Menu
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -36,7 +36,6 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.subMenuUsers = new System.Windows.Forms.Panel();
             this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.btnEditUser = new System.Windows.Forms.Button();
             this.btnAggEmpleado = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -144,7 +143,6 @@
             // 
             this.subMenuUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.subMenuUsers.Controls.Add(this.btnDeleteUser);
-            this.subMenuUsers.Controls.Add(this.btnEditUser);
             this.subMenuUsers.Controls.Add(this.btnAggEmpleado);
             this.subMenuUsers.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuUsers.Location = new System.Drawing.Point(0, 163);
@@ -158,32 +156,15 @@
             this.btnDeleteUser.FlatAppearance.BorderSize = 0;
             this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteUser.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDeleteUser.Location = new System.Drawing.Point(0, 90);
+            this.btnDeleteUser.Location = new System.Drawing.Point(0, 45);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.btnDeleteUser.Size = new System.Drawing.Size(281, 45);
             this.btnDeleteUser.TabIndex = 3;
-            this.btnDeleteUser.Text = "Eliminar";
+            this.btnDeleteUser.Text = "Informacion";
             this.btnDeleteUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEditUser.FlatAppearance.BorderSize = 0;
-            this.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditUser.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEditUser.Location = new System.Drawing.Point(0, 45);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnEditUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEditUser.Size = new System.Drawing.Size(281, 45);
-            this.btnEditUser.TabIndex = 2;
-            this.btnEditUser.Text = "Editar";
-            this.btnEditUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnAggEmpleado
             // 
@@ -249,7 +230,7 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,7 +241,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.MinimumSize = new System.Drawing.Size(900, 600);
-            this.Name = "Form1";
+            this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servicio Tecnico Avanzado";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -281,7 +262,6 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel subMenuUsers;
         private System.Windows.Forms.Button btnDeleteUser;
-        private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnAggEmpleado;
         private System.Windows.Forms.Panel subMenuClie;
         private System.Windows.Forms.Button btnDeleteClie;

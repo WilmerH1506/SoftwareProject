@@ -130,7 +130,7 @@ namespace SoftwareProject.Formularios
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Los cambios se realizaron con exito", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form1 form1 = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+                Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
 
                 if (form1 != null)
                 {
@@ -148,7 +148,7 @@ namespace SoftwareProject.Formularios
         {
             this.Close();
 
-            Form1 form1 = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+            Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
 
             if (form1 != null)
             {

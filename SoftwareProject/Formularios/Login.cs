@@ -69,7 +69,7 @@ namespace SoftwareProject.Formularios
                     
                   
                     
-                    Form1 frmInicio = new Form1(cnx,usuarioID);
+                    Menu frmInicio = new Menu(cnx,usuarioID);
                     frmInicio.Show(); 
                     
                 }

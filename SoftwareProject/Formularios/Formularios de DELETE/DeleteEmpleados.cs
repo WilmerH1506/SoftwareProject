@@ -143,7 +143,7 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
                        != DBNull.Value? (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"]  : 0; //Si se recupera un jefeID nulo se enviara como 0
                 Estado = estadoString == "True";
 
-                Form1 form1 = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+                Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
 
                 if (form1 != null)
                 {
