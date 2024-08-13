@@ -34,8 +34,6 @@ namespace SoftwareProject.Formularios
         {
             String[] Areas = { "Administracion Gerencial", "Tecnico Redes" };
             cmbAreas.Items.AddRange(Areas);
-
-
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -51,38 +49,38 @@ namespace SoftwareProject.Formularios
             bool esValido = true;
 
 
-            if (txtNombre.Text.Length < 3)
+            if (txtNombre.Text.Length < 3 || txtNombre.Text == "Nombre")
             {
-                error.SetError(txtNombre, "El nombre no puede tener menos de 3 letras");
+                error.SetError(txtNombre, "El nombre no es valido");
                 esValido = false;
             }
 
-            if (txtDNI.Text.Length != 13 && txtDNI.Text.Length != 15)
+            if (txtDNI.Text.Length != 13 && txtDNI.Text.Length != 15 || txtDNI.Text == "Identidad")
             {
-                error.SetError(txtDNI, "La identidad debe tener 13 o 15 caracteres.");
+                error.SetError(txtDNI, "La identidad no es valida");
                 esValido = false;
             }
 
 
-            if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains("."))
+            if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains(".") || txtMail.Text == "Correo")
             {
                 error.SetError(txtMail, "El correo no es válido.");
                 esValido = false;
             }
 
-            if (txtTelefono.Text.Length < 6)
+            if (txtTelefono.Text.Length < 6 || txtTelefono.Text == "Telefono")
             {
                 error.SetError(txtTelefono, "El número de teléfono no es válido.");
                 esValido = false;
             }
 
-            if (txtDireccion.Text.Length == 0)
+            if (txtDireccion.Text.Length == 0 || txtDireccion.Text == "Direccion")
             {
-                error.SetError(txtDireccion, "La dirección no puede estar vacía.");
+                error.SetError(txtDireccion, "La dirección no es valida.");
                 esValido = false;
             }
 
-            if (!int.TryParse(txtSueldo.Text, out int sueldo))
+            if (!int.TryParse(txtSueldo.Text, out int sueldo) || txtSueldo.Text == "Sueldo LPS.")
             {
                 error.SetError(txtSueldo, "El sueldo debe ser un número válido.");
                 esValido = false;
@@ -93,15 +91,21 @@ namespace SoftwareProject.Formularios
                 esValido = false;
             }
 
-            if(txtPass.Text.Length < 3)
+            if(txtPass.Text.Length < 3 || txtPass.Text == "Contraseña")
             {
-                error.SetError(txtPass, "La contraseña es muy corta");
+                error.SetError(txtPass, "La contraseña no es valida");
                 esValido = false;
             }
 
             if(cmbAreas.SelectedItem == null || cmbAreas.SelectedItem.ToString() == "")
             {
-                error.SetError(txtPass, "Seleccione una especialidad");
+                error.SetError(cmbAreas, "Seleccione una especialidad");
+                esValido = false;
+            }
+
+            if (txtUsername.Text == "Username")
+            {
+                error.SetError(txtUsername, "El username no es valido");
                 esValido = false;
             }
 
@@ -369,7 +373,7 @@ namespace SoftwareProject.Formularios
 
         private void txtSueldo_Enter(object sender, EventArgs e)
         {
-            if (txtSueldo.Text == "Sueldo")
+            if (txtSueldo.Text == "Sueldo LPS.")
             {
                 txtSueldo.Text = "";
             }
@@ -379,7 +383,7 @@ namespace SoftwareProject.Formularios
         {
             if (string.IsNullOrWhiteSpace(txtSueldo.Text))
             {
-                txtDireccion.Text = "Direccion";
+                txtSueldo.Text = "Sueldo LPS.";
             }
         }
     }
