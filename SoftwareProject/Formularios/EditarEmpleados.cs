@@ -89,58 +89,128 @@ namespace SoftwareProject.Formularios
             }
 
         }
+        private bool Validaciones()
+        {
+            // Limpiar errores previos
+            error.Clear();
 
-       
+            bool esValido = true;
+
+            
+            if (txtNombre.Text.Length < 3)
+            {
+                error.SetError(txtNombre, "El nombre no puede tener menos de 3 letras");
+                esValido = false;
+            }
+
+            if (txtDNI.Text.Length != 13 && txtDNI.Text.Length != 15 )
+            {
+                error.SetError(txtDNI, "La identidad debe tener 13 o 15 caracteres.");
+                esValido = false;
+            }
+
+           
+            if (!txtCorreo.Text.Contains("@") || !txtCorreo.Text.Contains("."))
+            {
+                error.SetError(txtCorreo, "El correo no es válido.");
+                esValido = false;
+            }
+
+            if (txtTelefono.Text.Length < 6)
+            {
+                error.SetError(txtTelefono, "El número de teléfono no es válido.");
+                esValido = false;
+            }
+
+            if (txtDireccion.Text.Length == 0)
+            {
+                error.SetError(txtDireccion, "La dirección no puede estar vacía.");
+                esValido = false;
+            }
+
+            
+            if (cbxEsp.SelectedItem == null || cbxEsp.SelectedItem.ToString() == "")
+            {
+                error.SetError(cbxEsp, "Debe seleccionar una especialización para el usuario.");
+                esValido = false;
+            }
+
+            if (!int.TryParse(txtSueldo.Text, out int sueldo))
+            {
+                error.SetError(txtSueldo, "El sueldo debe ser un número válido.");
+                esValido = false;
+            }
+            else if (sueldo < 0)
+            {
+                error.SetError(txtSueldo, "El sueldo no puede ser negativo.");
+                esValido = false;
+            }
+
+            if (chkJefe.Checked)
+            {
+                if (cbxJefe.SelectedItem == null || cbxJefe.SelectedItem.ToString() == "")
+                {
+                    error.SetError(cbxJefe, "Debe seleccionar un Jefe.");
+                    esValido = false;
+                }
+            }
+
+            return esValido;
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            try
+
+            if (Validaciones())
             {
-                int Jefeid = jefeID;
-                SqlCommand cmd = new SqlCommand("spEditarEmpleados", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                if (chkEstado.Checked)
+                try
                 {
-                    EstadoF = "A";
-                }
-                else
-                {
-                    EstadoF = "N";
-                }
+                    int Jefeid = jefeID;
+                    SqlCommand cmd = new SqlCommand("spEditarEmpleados", cnx);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                if (chkJefe.Checked)
-                {
-                   Jefeid = IDJefe();   
-                }
+                    if (chkEstado.Checked)
+                    {
+                        EstadoF = "A";
+                    }
+                    else
+                    {
+                        EstadoF = "N";
+                    }
 
-                cmd.Parameters.AddWithValue("@Name", txtNombre.Text);
-                cmd.Parameters.AddWithValue("@DNI", txtDNI.Text);
-                cmd.Parameters.AddWithValue("@Email", txtCorreo.Text);
-                cmd.Parameters.AddWithValue("@Cel", txtTelefono.Text);
-                cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-                cmd.Parameters.AddWithValue("@Area", cbxEsp.SelectedItem);
-                cmd.Parameters.AddWithValue("@Sueldo", txtSueldo.Text);
-                cmd.Parameters.AddWithValue("@Estado", EstadoF);
-                cmd.Parameters.AddWithValue("@EmpleadoID", EmpleadoID);
-                if(Jefeid != 0)
-                {
-                    cmd.Parameters.AddWithValue("@Jefe", Jefeid);
-                }
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                MessageBox.Show("Los cambios se realizaron con exito", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
+                    if (chkJefe.Checked)
+                    {
+                        Jefeid = IDJefe();
+                    }
 
-                if (form1 != null)
-                {
-                    form1.OpenChildForm(new DeleteEmpleados(cnx));
-                }
+                    cmd.Parameters.AddWithValue("@Name", txtNombre.Text);
+                    cmd.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    cmd.Parameters.AddWithValue("@Email", txtCorreo.Text);
+                    cmd.Parameters.AddWithValue("@Cel", txtTelefono.Text);
+                    cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+                    cmd.Parameters.AddWithValue("@Area", cbxEsp.SelectedItem);
+                    cmd.Parameters.AddWithValue("@Sueldo", txtSueldo.Text);
+                    cmd.Parameters.AddWithValue("@Estado", EstadoF);
+                    cmd.Parameters.AddWithValue("@EmpleadoID", EmpleadoID);
+                    if (Jefeid != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@Jefe", Jefeid);
+                    }
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                    MessageBox.Show("Los cambios se realizaron con exito", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
 
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Ocurrio un Error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (form1 != null)
+                    {
+                        form1.OpenChildForm(new DeleteEmpleados(cnx));
+                    }
+
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Ocurrio un Error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

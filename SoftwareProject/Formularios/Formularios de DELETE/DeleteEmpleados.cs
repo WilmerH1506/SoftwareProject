@@ -139,8 +139,9 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
                 Esp = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Especializacion"].ToString();
                 salario = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["sueldo"].ToString();
                 string estadoString = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Estado"].ToString();
+
                 Jefe = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"] 
-                       != DBNull.Value? (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"]  : 0; //Si se recupera un jefeID nulo se enviara como 0
+                       != DBNull.Value ? (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"] : 0; //Si se recupera un jefeID nulo se enviara como 0
                 Estado = estadoString == "True";
 
                 Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
@@ -161,7 +162,7 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
         {
             string busqueda = txtBusqueda.Text;
 
-            string filtro = string.Format("Convert(DNI, 'System.String') LIKE '%{0}%'", busqueda); // Se hace el %{0}% para que no importa donde este el numero se busque
+            string filtro = string.Format("Convert(DNI, 'System.String') like '%{0}%'", busqueda);
 
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = filtro;
         }
@@ -210,6 +211,11 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
             {
                 MessageBox.Show("Por favor seleccione una fila para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

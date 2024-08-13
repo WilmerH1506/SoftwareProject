@@ -31,7 +31,8 @@ namespace SoftwareProject
         {
 
             subMenuClie.Visible = false;
-            subMenuUsers.Visible = false;
+            subMenuEmpleado.Visible = false;
+            subMenuInventario.Visible = false;
         }
 
         private void Ocultar()
@@ -41,11 +42,16 @@ namespace SoftwareProject
                 subMenuClie.Visible = false;
             }
 
-            if (subMenuUsers.Visible == true)
+            if (subMenuEmpleado.Visible == true)
             {
-                subMenuUsers.Visible = false;
+                subMenuEmpleado.Visible = false;
             }
-        
+
+            if (subMenuInventario.Visible == true)
+            {
+                subMenuInventario.Visible = false;
+            }
+
         }
 
 
@@ -62,19 +68,12 @@ namespace SoftwareProject
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            Mostrar(subMenuUsers);
-            Console.WriteLine(userID);
+            Mostrar(subMenuEmpleado);
         }
 
         private void btnAggUser_Click(object sender, EventArgs e)
         {
             OpenChildForm(new RegistroEmpleados(cnx, userID));
-            Ocultar();
-        }
-
-        private void btnEditUser_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Prueba());
             Ocultar();
         }
 
@@ -99,11 +98,6 @@ namespace SoftwareProject
             Ocultar();
         }
 
-        private void btnDeleteClie_Click(object sender, EventArgs e)
-        {
-            Ocultar();
-        }
-
         private Form activeForm = null;
         public void OpenChildForm (Form childForm)
         {
@@ -117,13 +111,6 @@ namespace SoftwareProject
             panelForms.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
-
-        #endregion Metodos
-
-        private void panelForms_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private int TipoAutorizado(SqlConnection conexion, int usuario)
@@ -164,14 +151,29 @@ namespace SoftwareProject
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
             if (TipoAutorizado(cnx, userID) != 1)
             { 
-           btnEmpleados.Visible = false;
+               btnEmpleados.Visible = false;
                 
             }
 
         }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            Mostrar(subMenuInventario);
+        }
+
+        private void btnCompraInv_Click(object sender, EventArgs e)
+        {
+            Ocultar();
+        }
+
+        private void btnInfoInv_Click(object sender, EventArgs e)
+        {
+            Ocultar();
+        }
+
+        #endregion Metodos
     }
 }

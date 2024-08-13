@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleados));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PRegistro = new System.Windows.Forms.Panel();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtSueldo = new System.Windows.Forms.TextBox();
@@ -38,6 +40,7 @@
             this.cmbAreas = new System.Windows.Forms.ComboBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -45,11 +48,11 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Registro = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
-            this.PRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PRegistro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,6 +66,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 604);
             this.panel1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(178, 75);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(416, 422);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // PRegistro
             // 
@@ -102,6 +116,8 @@
             this.txtUsername.TabIndex = 15;
             this.txtUsername.Text = "Username";
             this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtSueldo
             // 
@@ -116,6 +132,8 @@
             this.txtSueldo.TabIndex = 14;
             this.txtSueldo.Text = "Sueldo LPS.";
             this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSueldo.Enter += new System.EventHandler(this.txtSueldo_Enter);
+            this.txtSueldo.Leave += new System.EventHandler(this.txtSueldo_Leave);
             // 
             // labelJefe
             // 
@@ -180,6 +198,22 @@
             this.txtPass.TabIndex = 8;
             this.txtPass.Text = "Contraseña";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
+            this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCerrar.Location = new System.Drawing.Point(383, 16);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(29, 27);
+            this.btnCerrar.TabIndex = 7;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnIngresar
             // 
@@ -211,6 +245,8 @@
             this.txtDireccion.TabIndex = 5;
             this.txtDireccion.Text = "Direccion";
             this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDireccion.Enter += new System.EventHandler(this.txtDireccion_Enter);
+            this.txtDireccion.Leave += new System.EventHandler(this.txtDireccion_Leave);
             // 
             // txtTelefono
             // 
@@ -225,6 +261,8 @@
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.Text = "Telefono";
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTelefono.Enter += new System.EventHandler(this.txtTelefono_Enter);
+            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // txtMail
             // 
@@ -239,6 +277,8 @@
             this.txtMail.TabIndex = 3;
             this.txtMail.Text = "Correo";
             this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // txtDNI
             // 
@@ -253,6 +293,8 @@
             this.txtDNI.TabIndex = 2;
             this.txtDNI.Text = "Identidad";
             this.txtDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDNI.Enter += new System.EventHandler(this.txtDNI_Enter);
+            this.txtDNI.Leave += new System.EventHandler(this.txtDNI_Leave);
             // 
             // txtNombre
             // 
@@ -267,6 +309,8 @@
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Text = "Nombre";
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // Registro
             // 
@@ -281,30 +325,10 @@
             this.Registro.TabIndex = 0;
             this.Registro.Text = "STAFF";
             // 
-            // btnCerrar
+            // error
             // 
-            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrar.Location = new System.Drawing.Point(383, 16);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 27);
-            this.btnCerrar.TabIndex = 7;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(178, 75);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(416, 422);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.error.ContainerControl = this;
             // 
             // RegistroEmpleados
             // 
@@ -320,9 +344,10 @@
             this.Text = "RegistroEmpleados";
             this.Load += new System.EventHandler(this.RegistroEmpleados_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PRegistro.ResumeLayout(false);
             this.PRegistro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,5 +372,6 @@
         private System.Windows.Forms.CheckBox chkJefe;
         private System.Windows.Forms.TextBox txtSueldo;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.ErrorProvider error;
     }
 }

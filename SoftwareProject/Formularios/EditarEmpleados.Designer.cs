@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarEmpleados));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,9 +55,11 @@
             this.lblJefe = new System.Windows.Forms.TextBox();
             this.chkJefe = new System.Windows.Forms.CheckBox();
             this.cbxJefe = new System.Windows.Forms.ComboBox();
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -380,6 +383,11 @@
             this.cbxJefe.Size = new System.Drawing.Size(233, 24);
             this.cbxJefe.TabIndex = 29;
             // 
+            // error
+            // 
+            this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.error.ContainerControl = this;
+            // 
             // EditarEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,6 +401,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -424,5 +433,6 @@
         private System.Windows.Forms.ComboBox cbxJefe;
         private System.Windows.Forms.CheckBox chkJefe;
         private System.Windows.Forms.TextBox lblJefe;
+        private System.Windows.Forms.ErrorProvider error;
     }
 }

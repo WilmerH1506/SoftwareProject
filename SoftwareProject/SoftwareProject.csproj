@@ -71,12 +71,6 @@
     <Compile Include="Formularios\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Prueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Prueba.Designer.cs">
-      <DependentUpon>Prueba.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\RegistroEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,9 +96,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Prueba.resx">
-      <DependentUpon>Prueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\RegistroEmpleados.resx">
       <DependentUpon>RegistroEmpleados.cs</DependentUpon>

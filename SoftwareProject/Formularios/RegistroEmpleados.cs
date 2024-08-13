@@ -34,20 +34,87 @@ namespace SoftwareProject.Formularios
         {
             String[] Areas = { "Administracion Gerencial", "Tecnico Redes" };
             cmbAreas.Items.AddRange(Areas);
+
+
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private bool Validaciones()
+        {
+            // Limpiar errores previos
+            error.Clear();
+
+            bool esValido = true;
+
+
+            if (txtNombre.Text.Length < 3)
+            {
+                error.SetError(txtNombre, "El nombre no puede tener menos de 3 letras");
+                esValido = false;
+            }
+
+            if (txtDNI.Text.Length != 13 && txtDNI.Text.Length != 15)
+            {
+                error.SetError(txtDNI, "La identidad debe tener 13 o 15 caracteres.");
+                esValido = false;
+            }
+
+
+            if (!txtMail.Text.Contains("@") || !txtMail.Text.Contains("."))
+            {
+                error.SetError(txtMail, "El correo no es válido.");
+                esValido = false;
+            }
+
+            if (txtTelefono.Text.Length < 6)
+            {
+                error.SetError(txtTelefono, "El número de teléfono no es válido.");
+                esValido = false;
+            }
+
+            if (txtDireccion.Text.Length == 0)
+            {
+                error.SetError(txtDireccion, "La dirección no puede estar vacía.");
+                esValido = false;
+            }
+
+            if (!int.TryParse(txtSueldo.Text, out int sueldo))
+            {
+                error.SetError(txtSueldo, "El sueldo debe ser un número válido.");
+                esValido = false;
+            }
+            else if (sueldo < 0)
+            {
+                error.SetError(txtSueldo, "El sueldo no puede ser negativo.");
+                esValido = false;
+            }
+
+            if(txtPass.Text.Length < 3)
+            {
+                error.SetError(txtPass, "La contraseña es muy corta");
+                esValido = false;
+            }
+
+            if(cmbAreas.SelectedItem == null || cmbAreas.SelectedItem.ToString() == "")
+            {
+                error.SetError(txtPass, "Seleccione una especialidad");
+                esValido = false;
+            }
+
+            return esValido;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (UsuarioExiste(txtUsername.Text))
             {
-                MessageBox.Show("El nombre de usuario que desea registrar ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error.SetError(txtUsername, "El usuario ya existe");
             }
-            else
+            else if(Validaciones())
             {
 
                 try
@@ -186,6 +253,134 @@ namespace SoftwareProject.Formularios
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtNombre_Enter(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "Nombre")
+            {
+                txtNombre.Text = "";
+            }
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                txtNombre.Text = "Nombre";
+            }
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "Username")
+            {
+                txtUsername.Text = "";
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                txtUsername.Text = "Username";
+            }
+        }
+
+        private void txtDNI_Enter(object sender, EventArgs e)
+        {
+            if (txtDNI.Text == "Identidad")
+            {
+                txtDNI.Text = "";
+            }
+        }
+
+        private void txtDNI_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDNI.Text))
+            {
+                txtDNI.Text = "Identidad";
+            }
+        }
+
+        private void txtPass_Enter(object sender, EventArgs e)
+        {
+            if (txtPass.Text == "Contraseña")
+            {
+                txtPass.Text = "";
+            }
+        }
+
+        private void txtPass_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPass.Text))
+            {
+                txtPass.Text = "Contraseña";
+            }
+        }
+
+        private void txtMail_Enter(object sender, EventArgs e)
+        {
+            if (txtMail.Text == "Correo")
+            {
+                txtMail.Text = "";
+            }
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMail.Text))
+            {
+                txtMail.Text = "Correo";
+            }
+        }
+
+        private void txtTelefono_Enter(object sender, EventArgs e)
+        {
+            if (txtTelefono.Text == "Telefono")
+            {
+                txtTelefono.Text = "";
+            }
+        }
+
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                txtTelefono.Text = "Telefono";
+            }
+        }
+
+        private void txtDireccion_Enter(object sender, EventArgs e)
+        {
+            if (txtDireccion.Text == "Direccion")
+            {
+                txtDireccion.Text = "";
+            }
+        }
+
+        private void txtDireccion_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                txtDireccion.Text = "Direccion";
+            }
+        }
+
+        private void txtSueldo_Enter(object sender, EventArgs e)
+        {
+            if (txtSueldo.Text == "Sueldo")
+            {
+                txtSueldo.Text = "";
+            }
+        }
+
+        private void txtSueldo_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSueldo.Text))
+            {
+                txtDireccion.Text = "Direccion";
+            }
         }
     }
 }
