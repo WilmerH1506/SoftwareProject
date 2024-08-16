@@ -166,6 +166,7 @@ namespace SoftwareProject
 
         private void btnCompraInv_Click(object sender, EventArgs e)
         {
+            //Prueba gitHub siuuu
             Ocultar();
         }
 
