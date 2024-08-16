@@ -1,5 +1,6 @@
 ﻿using SoftwareProject.Formularios;
 using SoftwareProject.Formularios.Formularios_de_DELETE;
+using SoftwareProject.Formularios.CRUD_Clientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace SoftwareProject
 {
@@ -90,13 +92,11 @@ namespace SoftwareProject
 
         private void btnAggClie_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new ConsultarClientes(cnx));
             Ocultar();
         }
 
-        private void btnEditClie_Click(object sender, EventArgs e)
-        {
-            Ocultar();
-        }
+      
 
         private Form activeForm = null;
         public void OpenChildForm (Form childForm)
@@ -175,5 +175,10 @@ namespace SoftwareProject
         }
 
         #endregion Metodos
+
+        private void subMenuClie_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

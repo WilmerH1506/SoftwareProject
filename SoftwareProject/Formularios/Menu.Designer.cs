@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.LateralMenu = new System.Windows.Forms.Panel();
+            this.subMenuInventario = new System.Windows.Forms.Panel();
+            this.btnInfoInv = new System.Windows.Forms.Button();
+            this.btnCompraInv = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.subMenuClie = new System.Windows.Forms.Panel();
-            this.btnDeleteClie = new System.Windows.Forms.Button();
-            this.btnEditClie = new System.Windows.Forms.Button();
-            this.btnAggClie = new System.Windows.Forms.Button();
+            this.btnAConsultarClie = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.subMenuEmpleado = new System.Windows.Forms.Panel();
             this.btnInfoEmpleado = new System.Windows.Forms.Button();
@@ -42,16 +44,12 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.subMenuInventario = new System.Windows.Forms.Panel();
-            this.btnInfoInv = new System.Windows.Forms.Button();
-            this.btnCompraInv = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
             this.LateralMenu.SuspendLayout();
+            this.subMenuInventario.SuspendLayout();
             this.subMenuClie.SuspendLayout();
             this.subMenuEmpleado.SuspendLayout();
             this.panelForms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.subMenuInventario.SuspendLayout();
             this.SuspendLayout();
             // 
             // LateralMenu
@@ -71,65 +69,91 @@
             this.LateralMenu.Size = new System.Drawing.Size(281, 604);
             this.LateralMenu.TabIndex = 0;
             // 
+            // subMenuInventario
+            // 
+            this.subMenuInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.subMenuInventario.Controls.Add(this.btnInfoInv);
+            this.subMenuInventario.Controls.Add(this.btnCompraInv);
+            this.subMenuInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.subMenuInventario.Location = new System.Drawing.Point(0, 416);
+            this.subMenuInventario.Name = "subMenuInventario";
+            this.subMenuInventario.Size = new System.Drawing.Size(281, 101);
+            this.subMenuInventario.TabIndex = 4;
+            // 
+            // btnInfoInv
+            // 
+            this.btnInfoInv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfoInv.FlatAppearance.BorderSize = 0;
+            this.btnInfoInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoInv.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInfoInv.Location = new System.Drawing.Point(0, 45);
+            this.btnInfoInv.Name = "btnInfoInv";
+            this.btnInfoInv.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnInfoInv.Size = new System.Drawing.Size(281, 45);
+            this.btnInfoInv.TabIndex = 3;
+            this.btnInfoInv.Text = "Informacion";
+            this.btnInfoInv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfoInv.UseVisualStyleBackColor = true;
+            this.btnInfoInv.Click += new System.EventHandler(this.btnInfoInv_Click);
+            // 
+            // btnCompraInv
+            // 
+            this.btnCompraInv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompraInv.FlatAppearance.BorderSize = 0;
+            this.btnCompraInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompraInv.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCompraInv.Location = new System.Drawing.Point(0, 0);
+            this.btnCompraInv.Name = "btnCompraInv";
+            this.btnCompraInv.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnCompraInv.Size = new System.Drawing.Size(281, 45);
+            this.btnCompraInv.TabIndex = 1;
+            this.btnCompraInv.Text = "Hacer Compra";
+            this.btnCompraInv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompraInv.UseVisualStyleBackColor = true;
+            this.btnCompraInv.Click += new System.EventHandler(this.btnCompraInv_Click);
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInventario.FlatAppearance.BorderSize = 0;
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInventario.Location = new System.Drawing.Point(0, 365);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnInventario.Size = new System.Drawing.Size(281, 51);
+            this.btnInventario.TabIndex = 5;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            // 
             // subMenuClie
             // 
             this.subMenuClie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.subMenuClie.Controls.Add(this.btnDeleteClie);
-            this.subMenuClie.Controls.Add(this.btnEditClie);
-            this.subMenuClie.Controls.Add(this.btnAggClie);
+            this.subMenuClie.Controls.Add(this.btnAConsultarClie);
             this.subMenuClie.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuClie.Location = new System.Drawing.Point(0, 315);
             this.subMenuClie.Name = "subMenuClie";
-            this.subMenuClie.Size = new System.Drawing.Size(260, 147);
+            this.subMenuClie.Size = new System.Drawing.Size(281, 50);
             this.subMenuClie.TabIndex = 3;
+            this.subMenuClie.Paint += new System.Windows.Forms.PaintEventHandler(this.subMenuClie_Paint);
             // 
-            // btnDeleteClie
+            // btnAConsultarClie
             // 
-            this.btnDeleteClie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDeleteClie.FlatAppearance.BorderSize = 0;
-            this.btnDeleteClie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteClie.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDeleteClie.Location = new System.Drawing.Point(0, 90);
-            this.btnDeleteClie.Name = "btnDeleteClie";
-            this.btnDeleteClie.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnDeleteClie.Size = new System.Drawing.Size(260, 45);
-            this.btnDeleteClie.TabIndex = 3;
-            this.btnDeleteClie.Text = "Eliminar";
-            this.btnDeleteClie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteClie.UseVisualStyleBackColor = true;
-            // 
-            // btnEditClie
-            // 
-            this.btnEditClie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEditClie.FlatAppearance.BorderSize = 0;
-            this.btnEditClie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditClie.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEditClie.Location = new System.Drawing.Point(0, 45);
-            this.btnEditClie.Name = "btnEditClie";
-            this.btnEditClie.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnEditClie.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEditClie.Size = new System.Drawing.Size(260, 45);
-            this.btnEditClie.TabIndex = 2;
-            this.btnEditClie.Text = "Editar";
-            this.btnEditClie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditClie.UseVisualStyleBackColor = true;
-            this.btnEditClie.Click += new System.EventHandler(this.btnEditClie_Click);
-            // 
-            // btnAggClie
-            // 
-            this.btnAggClie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAggClie.FlatAppearance.BorderSize = 0;
-            this.btnAggClie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAggClie.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAggClie.Location = new System.Drawing.Point(0, 0);
-            this.btnAggClie.Name = "btnAggClie";
-            this.btnAggClie.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnAggClie.Size = new System.Drawing.Size(260, 45);
-            this.btnAggClie.TabIndex = 1;
-            this.btnAggClie.Text = "Agregar";
-            this.btnAggClie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAggClie.UseVisualStyleBackColor = true;
-            this.btnAggClie.Click += new System.EventHandler(this.btnAggClie_Click);
+            this.btnAConsultarClie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAConsultarClie.FlatAppearance.BorderSize = 0;
+            this.btnAConsultarClie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAConsultarClie.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAConsultarClie.Location = new System.Drawing.Point(0, 0);
+            this.btnAConsultarClie.Name = "btnAConsultarClie";
+            this.btnAConsultarClie.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnAConsultarClie.Size = new System.Drawing.Size(281, 45);
+            this.btnAConsultarClie.TabIndex = 1;
+            this.btnAConsultarClie.Text = "Consultar";
+            this.btnAConsultarClie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAConsultarClie.UseVisualStyleBackColor = true;
+            this.btnAConsultarClie.Click += new System.EventHandler(this.btnAggClie_Click);
             // 
             // btnClientes
             // 
@@ -140,7 +164,7 @@
             this.btnClientes.Location = new System.Drawing.Point(0, 264);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(260, 51);
+            this.btnClientes.Size = new System.Drawing.Size(281, 51);
             this.btnClientes.TabIndex = 2;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -155,7 +179,7 @@
             this.subMenuEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuEmpleado.Location = new System.Drawing.Point(0, 163);
             this.subMenuEmpleado.Name = "subMenuEmpleado";
-            this.subMenuEmpleado.Size = new System.Drawing.Size(260, 101);
+            this.subMenuEmpleado.Size = new System.Drawing.Size(281, 101);
             this.subMenuEmpleado.TabIndex = 1;
             // 
             // btnInfoEmpleado
@@ -167,7 +191,7 @@
             this.btnInfoEmpleado.Location = new System.Drawing.Point(0, 45);
             this.btnInfoEmpleado.Name = "btnInfoEmpleado";
             this.btnInfoEmpleado.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnInfoEmpleado.Size = new System.Drawing.Size(260, 45);
+            this.btnInfoEmpleado.Size = new System.Drawing.Size(281, 45);
             this.btnInfoEmpleado.TabIndex = 3;
             this.btnInfoEmpleado.Text = "Informacion";
             this.btnInfoEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,7 +207,7 @@
             this.btnAggEmpleado.Location = new System.Drawing.Point(0, 0);
             this.btnAggEmpleado.Name = "btnAggEmpleado";
             this.btnAggEmpleado.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnAggEmpleado.Size = new System.Drawing.Size(260, 45);
+            this.btnAggEmpleado.Size = new System.Drawing.Size(281, 45);
             this.btnAggEmpleado.TabIndex = 1;
             this.btnAggEmpleado.Text = "Agregar";
             this.btnAggEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,7 +223,7 @@
             this.btnEmpleados.Location = new System.Drawing.Point(0, 112);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnEmpleados.Size = new System.Drawing.Size(260, 51);
+            this.btnEmpleados.Size = new System.Drawing.Size(281, 51);
             this.btnEmpleados.TabIndex = 1;
             this.btnEmpleados.Text = "Empleado";
             this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,7 +235,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(260, 112);
+            this.panelLogo.Size = new System.Drawing.Size(281, 112);
             this.panelLogo.TabIndex = 1;
             // 
             // panelForms
@@ -237,65 +261,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // subMenuInventario
-            // 
-            this.subMenuInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.subMenuInventario.Controls.Add(this.btnInfoInv);
-            this.subMenuInventario.Controls.Add(this.btnCompraInv);
-            this.subMenuInventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenuInventario.Location = new System.Drawing.Point(0, 513);
-            this.subMenuInventario.Name = "subMenuInventario";
-            this.subMenuInventario.Size = new System.Drawing.Size(260, 101);
-            this.subMenuInventario.TabIndex = 4;
-            // 
-            // btnInfoInv
-            // 
-            this.btnInfoInv.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfoInv.FlatAppearance.BorderSize = 0;
-            this.btnInfoInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfoInv.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInfoInv.Location = new System.Drawing.Point(0, 45);
-            this.btnInfoInv.Name = "btnInfoInv";
-            this.btnInfoInv.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnInfoInv.Size = new System.Drawing.Size(260, 45);
-            this.btnInfoInv.TabIndex = 3;
-            this.btnInfoInv.Text = "Informacion";
-            this.btnInfoInv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfoInv.UseVisualStyleBackColor = true;
-            this.btnInfoInv.Click += new System.EventHandler(this.btnInfoInv_Click);
-            // 
-            // btnCompraInv
-            // 
-            this.btnCompraInv.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCompraInv.FlatAppearance.BorderSize = 0;
-            this.btnCompraInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompraInv.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCompraInv.Location = new System.Drawing.Point(0, 0);
-            this.btnCompraInv.Name = "btnCompraInv";
-            this.btnCompraInv.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnCompraInv.Size = new System.Drawing.Size(260, 45);
-            this.btnCompraInv.TabIndex = 1;
-            this.btnCompraInv.Text = "Hacer Compra";
-            this.btnCompraInv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompraInv.UseVisualStyleBackColor = true;
-            this.btnCompraInv.Click += new System.EventHandler(this.btnCompraInv_Click);
-            // 
-            // btnInventario
-            // 
-            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInventario.Location = new System.Drawing.Point(0, 462);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(260, 51);
-            this.btnInventario.TabIndex = 5;
-            this.btnInventario.Text = "Inventario";
-            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.UseVisualStyleBackColor = true;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -312,12 +277,12 @@
             this.Text = "Servicio Tecnico Avanzado";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.LateralMenu.ResumeLayout(false);
+            this.subMenuInventario.ResumeLayout(false);
             this.subMenuClie.ResumeLayout(false);
             this.subMenuEmpleado.ResumeLayout(false);
             this.panelForms.ResumeLayout(false);
             this.panelForms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.subMenuInventario.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -331,9 +296,7 @@
         private System.Windows.Forms.Button btnInfoEmpleado;
         private System.Windows.Forms.Button btnAggEmpleado;
         private System.Windows.Forms.Panel subMenuClie;
-        private System.Windows.Forms.Button btnDeleteClie;
-        private System.Windows.Forms.Button btnEditClie;
-        private System.Windows.Forms.Button btnAggClie;
+        private System.Windows.Forms.Button btnAConsultarClie;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panelForms;
         private System.Windows.Forms.PictureBox pictureBox1;
