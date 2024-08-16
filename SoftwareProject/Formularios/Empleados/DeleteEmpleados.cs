@@ -53,7 +53,7 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
         {
             TabEmpleados = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter("select e.EmpleadoId, e.Nombre, e.DNI, e.E_mail, e.Telefono, E.Direccion, E.Especializacion, e.Sueldo, e.jefeId, E.UsuarioId, u.Estado\r\n" +
-                "from Empleado as e inner join Usuarios as u on e.UsuarioId = u.UsuarioId", cnx);
+                "from Empleado as e inner join Usuarios as u on e.UsuarioId = u.UsuarioId where u.estado = 'I'", cnx);
             adapter.Fill(TabEmpleados);
             dataGridView1.DataSource = TabEmpleados;
             dataGridView1.ReadOnly = true;
@@ -130,18 +130,18 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
 
             try
             {
-                EmpleadoID = (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["EmpleadoID"];
-                nombre = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["nombre"].ToString();
-                DNI = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["DNI"].ToString();
-                Correo = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["E_mail"].ToString();
-                Telefono = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Telefono"].ToString();
-                Direccion = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["direccion"].ToString();
-                Esp = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Especializacion"].ToString();
-                salario = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["sueldo"].ToString();
-                string estadoString = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["Estado"].ToString();
+                EmpleadoID = (int)TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["EmpleadoID"];
+                nombre = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["nombre"].ToString();
+                DNI = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["DNI"].ToString();
+                Correo = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["E_mail"].ToString();
+                Telefono = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["Telefono"].ToString();
+                Direccion = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["direccion"].ToString();
+                Esp = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["Especializacion"].ToString();
+                salario = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["sueldo"].ToString();
+                string estadoString = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["Estado"].ToString();
 
-                Jefe = TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"] 
-                       != DBNull.Value ? (int)TabEmpleados.Rows[dataGridView1.CurrentRow.Index]["JefeID"] : 0; //Si se recupera un jefeID nulo se enviara como 0
+                Jefe = TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["JefeID"] 
+                       != DBNull.Value ? (int)TabEmpleados.DefaultView[dataGridView1.CurrentRow.Index]["JefeID"] : 0; //Si se recupera un jefeID nulo se enviara como 0
                 Estado = estadoString == "True";
 
                 Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
@@ -214,6 +214,11 @@ namespace SoftwareProject.Formularios.Formularios_de_DELETE
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

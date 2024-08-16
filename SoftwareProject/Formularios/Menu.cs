@@ -1,5 +1,4 @@
 ﻿using SoftwareProject.Formularios;
-using SoftwareProject.Formularios.Formularios_de_DELETE;
 using SoftwareProject.Formularios.CRUD_Clientes;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SoftwareProject.Formularios.Formularios_de_DELETE;
+using SoftwareProject.Formularios.Inventario;
 
 namespace SoftwareProject
 {
@@ -173,6 +173,7 @@ namespace SoftwareProject
 
         private void btnInfoInv_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new InformacionInv(cnx));
             Ocultar();
         }
 
