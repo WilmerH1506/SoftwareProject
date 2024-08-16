@@ -19,7 +19,7 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
         {
             InitializeComponent();
             cnx = conexion;
-
+            //probando git
             
         }
 
